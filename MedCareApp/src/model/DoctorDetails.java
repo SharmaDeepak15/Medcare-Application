@@ -66,6 +66,11 @@ public class DoctorDetails {
         this.doctor_email = doctor_email;
     }
     
+    @Override
+    public String toString(){
+        return doctor_name;
+    }
+    
     private int doctor_id;
     private String doctor_name;
     private String doctor_gender;

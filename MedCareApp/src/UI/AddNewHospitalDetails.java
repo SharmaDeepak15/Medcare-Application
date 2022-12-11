@@ -7,8 +7,6 @@ package UI;
 import javax.swing.JOptionPane;
 import model.HospitalDataRecord;
 import model.HospitalDetails;
-import model.MedcareDataRecord;
-import model.HospitalDetails;
 
 /**
  *
@@ -177,7 +175,7 @@ public class AddNewHospitalDetails extends javax.swing.JPanel {
                             .addComponent(jLabel10)
                             .addGap(137, 137, 137))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(HospitalStreetNameLabel)
                                 .addComponent(HospitalStreetNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,7 +254,7 @@ public class AddNewHospitalDetails extends javax.swing.JPanel {
         if (validate_hosp_contact.length() > 0 ){
             try 
                 { 
-                Integer.parseInt(HospitalContactTxt.getText()); 
+                Long.parseLong(HospitalContactTxt.getText()); 
                 }  
             catch (NumberFormatException e)  
                 { 
@@ -270,6 +268,17 @@ public class AddNewHospitalDetails extends javax.swing.JPanel {
             return;
         }
         
+        if (validate_hosp_contact.length() != 10 ){
+                JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the valid contact value.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+                return;
+        }
+        
+        
+        String validate_hosp_mail = String.valueOf(HospitalEmailTxt.getText());
+        if (!validate_hosp_mail.contains("@") && validate_hosp_mail.length() > 0  ){
+            JOptionPane.showMessageDialog(this,"The email is invalid, please provide the valid mail id.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+            return;     
+        } 
         
         
         int hospital_id = Integer.parseInt(HospitalIDTxt.getText());

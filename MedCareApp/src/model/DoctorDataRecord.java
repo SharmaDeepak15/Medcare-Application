@@ -23,9 +23,9 @@ public class DoctorDataRecord {
     public ArrayList<DoctorDetails> getHistory() {
         return doctor_history;
     }
-    
-        public void setHistory(ArrayList<DoctorDetails> history) {
-        this.doctor_history = doctor_history;
+
+    public void setHistory(ArrayList<DoctorDetails> history) {
+     this.doctor_history = doctor_history;
     }
     
     public DoctorDetails addNewDoctor(){

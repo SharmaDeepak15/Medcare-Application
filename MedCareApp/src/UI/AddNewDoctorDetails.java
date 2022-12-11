@@ -7,8 +7,7 @@ package UI;
 import javax.swing.JOptionPane;
 import model.DoctorDataRecord;
 import model.DoctorDetails;
-import model.HospitalDataRecord;
-import model.MedcareDataRecord;
+
 
 /**
  *
@@ -243,13 +242,26 @@ public class AddNewDoctorDetails extends javax.swing.JPanel {
         if (validate_doctor_contact.length() > 0 ){
             try 
                 { 
-                Integer.parseInt(DoctorContactTxt.getText()); 
+                 Long.parseLong(DoctorContactTxt.getText()); 
                 }  
             catch (NumberFormatException e)  
                 { 
                 JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the integer value only.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
                 return;}          
         } 
+        
+        if (validate_doctor_contact.length() != 10 ){
+                JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the valid contact value.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+                return;
+        }
+        
+        
+        String validate_doctor_mail = String.valueOf(DoctorEmailTxt.getText());
+        if (!validate_doctor_mail.contains("@") && validate_doctor_mail.length() > 0  ){
+            JOptionPane.showMessageDialog(this,"The email is invalid, please provide the valid mail id.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+            return;     
+        } 
+        
         
         
         int doctor_id = Integer.parseInt(DoctorIDTxt.getText());

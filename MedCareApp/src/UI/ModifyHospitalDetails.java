@@ -4,7 +4,12 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.HospitalDataRecord;
+import model.HospitalDetails;
 import model.MedcareDataRecord;
+import model.PatientDetails;
 
 /**
  *
@@ -15,11 +20,14 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
     /**
      * Creates new form ModifyHospitalDetails
      */
-    MedcareDataRecord history;
-    public ModifyHospitalDetails(MedcareDataRecord history) 
+    HospitalDataRecord hospital_history;
+    public ModifyHospitalDetails(HospitalDataRecord hospital_history) 
     {
         initComponents();
-        this.history = history;
+        this.hospital_history = hospital_history;
+        
+        PopulateHospitalTable();
+        
     }
 
     /**
@@ -70,12 +78,10 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Contact", "City", "Country"
+                "Name", "ID", "Contact", "City", "Country"
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jButton1.setText("VIEW");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +94,12 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        HospitalNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HospitalNameTxtActionPerformed(evt);
             }
         });
 
@@ -123,6 +135,7 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
 
         HospitalCityLabel.setText("City*:");
 
+        HospitalIDTxt.setEditable(false);
         HospitalIDTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HospitalIDTxtActionPerformed(evt);
@@ -138,10 +151,6 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(342, 342, 342)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,25 +188,34 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
                                 .addGap(88, 88, 88))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(201, 201, 201)
+                                .addComponent(jButton1))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(40, 40, 40))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(HospitalStreetNameLabel)
                             .addComponent(HospitalStreetNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,9 +246,7 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(HospitalEmailLabel)
                             .addComponent(HospitalEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(54, 54, 54)
-                .addComponent(jButton2)
-                .addGap(147, 147, 147))
+                .addGap(230, 230, 230))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -257,10 +273,114 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        int SelectedRowIndex = jTable1.getSelectedRow();
+        
+        if (SelectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a record to view details");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        HospitalDetails SelectedHospRecord = (HospitalDetails) model.getValueAt(SelectedRowIndex, 0);
+        
+        HospitalNameTxt.setText(String.valueOf(SelectedHospRecord.getHospital_name()));
+        HospitalIDTxt.setText(String.valueOf(SelectedHospRecord.getHospital_id()));  
+        HospitalContactTxt.setText(String.valueOf(SelectedHospRecord.getHospital_contact()));
+        HospitalEmailTxt.setText(String.valueOf(SelectedHospRecord.getHospital_email()));
+        HospitalStreetNameTxt.setText(String.valueOf(SelectedHospRecord.getHospital_street_name()));
+        HospitalCityTxt.setText(SelectedHospRecord.getHospital_city());
+        HospitalCountryTxt.setText(SelectedHospRecord.getHospital_country());
+        HospitalPostalCodeTxt.setText(SelectedHospRecord.getHospital_postal_code());
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+           
+        String name = HospitalNameTxt.getText();
+        if (name.length() == 0 ){
+            JOptionPane.showMessageDialog(this,"The 'Name' is a mandatory field, please provide required value.", "Empty Field", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String city = HospitalCityTxt.getText();
+        if (city.length() == 0 ){
+            JOptionPane.showMessageDialog(this,"The 'City' is a mandatory field, please provide required value.", "Empty Field", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String validate_hosp_contact = String.valueOf(HospitalContactTxt.getText());
+        if (validate_hosp_contact.length() > 0 ){
+            try 
+                { 
+                 Long.parseLong(HospitalContactTxt.getText()); 
+                }  
+            catch (NumberFormatException e)  
+                { 
+                JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the integer value only.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+                return;}          
+        } 
+        
+        if (validate_hosp_contact.length() != 10 ){
+                JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the valid contact value.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+                return;
+        }
+        
+        
+        String validate_pat_mail = String.valueOf(HospitalEmailTxt.getText());
+        if (!validate_pat_mail.contains("@") && validate_pat_mail.length() > 0  ){
+            JOptionPane.showMessageDialog(this,"The email is invalid, please provide the valid mail id.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+            return;     
+        } 
+        
+        
+        int update_hospital_id = Integer.parseInt(HospitalIDTxt.getText()); 
+        for (HospitalDetails ed : hospital_history.getHistory()){
+            int hospital_id = ed.getHospital_id();
+            if (update_hospital_id == hospital_id){     
+                
+                String hospital_name = HospitalNameTxt.getText();
+                long hospital_contact = Long.parseLong(HospitalContactTxt.getText());
+                String hospital_email = HospitalEmailTxt.getText();
+                String hospital_streetname = HospitalStreetNameTxt.getText();
+                String hospital_city = HospitalCityTxt.getText();
+                String hospital_country = HospitalCountryTxt.getText();
+                String hospital_postalcode = HospitalPostalCodeTxt.getText();
+             
+                          
+                HospitalDetails UpdateHospRec = hospital_history.UpdateHospital();
+                
+                UpdateHospRec.setHospital_name(hospital_name);
+                UpdateHospRec.setHospital_id(hospital_id);
+                UpdateHospRec.setHospital_contact(hospital_contact);
+                UpdateHospRec.setHospital_email(hospital_email);
+                UpdateHospRec.setHospital_city(hospital_city);
+                UpdateHospRec.setHospital_country(hospital_country);
+                UpdateHospRec.setHospital_postal_code(hospital_postalcode);
+                UpdateHospRec.setHospital_street_name(hospital_streetname);
+                
+                JOptionPane.showMessageDialog(this, "Hospital Details has been updated");
+                
+                hospital_history.DeleteHospitalDetails(ed);
+                
+                HospitalIDTxt.setText("");
+                HospitalNameTxt.setText("");
+                HospitalContactTxt.setText("");
+                HospitalEmailTxt.setText("");
+                HospitalStreetNameTxt.setText("");
+                HospitalCityTxt.setText("");
+                HospitalCountryTxt.setText("");
+                HospitalPostalCodeTxt.setText("");
+                
+        
+
+            }
+        }
+        PopulateHospitalTable();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void HospitalContactTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalContactTxtActionPerformed
@@ -278,6 +398,10 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
     private void HospitalIDTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalIDTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_HospitalIDTxtActionPerformed
+
+    private void HospitalNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HospitalNameTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,4 +429,25 @@ public class ModifyHospitalDetails extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void PopulateHospitalTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        for (HospitalDetails ed : hospital_history.getHistory()){
+            Object[] row = new Object[5];
+            row[0] = ed;
+            row[1] = ed.getHospital_id();
+            row[2] = ed.getHospital_contact();
+            row[3] = ed.getHospital_city();
+            row[4] = ed.getHospital_country();
+            
+            model.addRow(row);
+    }
+        
+        
+        
+        
+    }
 }

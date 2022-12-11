@@ -4,7 +4,8 @@
  */
 package UI;
 
-import model.MedcareDataRecord;
+import model.HospitalDataRecord;
+import model.PatientDataRecord;
 
 /**
  *
@@ -16,10 +17,12 @@ public class CommunityAdminJPanel extends javax.swing.JPanel {
      * Creates new form CommunityAdminJPanel
      */
    
-    MedcareDataRecord history;
-    public CommunityAdminJPanel(MedcareDataRecord history) {
+    PatientDataRecord patient_history;
+    HospitalDataRecord hospital_history;
+    public CommunityAdminJPanel(PatientDataRecord patient_history, HospitalDataRecord hospital_history ) {
         initComponents();
-        this.history = history;
+        this.patient_history = patient_history;
+        this.hospital_history = hospital_history;
 
     }
 
@@ -35,40 +38,16 @@ public class CommunityAdminJPanel extends javax.swing.JPanel {
         SplitPane = new javax.swing.JSplitPane();
         CommunityLabelPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        CommunityAdminJPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        CommunityAdminJPanel = new javax.swing.JPanel();
 
         SplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("COMMUNITY ADMINISTRATOR");
-
-        javax.swing.GroupLayout CommunityLabelPanelLayout = new javax.swing.GroupLayout(CommunityLabelPanel);
-        CommunityLabelPanel.setLayout(CommunityLabelPanelLayout);
-        CommunityLabelPanelLayout.setHorizontalGroup(
-            CommunityLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CommunityLabelPanelLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE))
-        );
-        CommunityLabelPanelLayout.setVerticalGroup(
-            CommunityLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CommunityLabelPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        SplitPane.setTopComponent(CommunityLabelPanel);
-
-        jButton1.setText("Modify Hospital Details");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setText("Modify Patient Details");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -77,25 +56,51 @@ public class CommunityAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Modify Hospital Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CommunityLabelPanelLayout = new javax.swing.GroupLayout(CommunityLabelPanel);
+        CommunityLabelPanel.setLayout(CommunityLabelPanelLayout);
+        CommunityLabelPanelLayout.setHorizontalGroup(
+            CommunityLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(CommunityLabelPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+            .addComponent(jSeparator1)
+        );
+        CommunityLabelPanelLayout.setVerticalGroup(
+            CommunityLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CommunityLabelPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CommunityLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(14, 14, 14))
+        );
+
+        SplitPane.setTopComponent(CommunityLabelPanel);
+
         javax.swing.GroupLayout CommunityAdminJPanelLayout = new javax.swing.GroupLayout(CommunityAdminJPanel);
         CommunityAdminJPanel.setLayout(CommunityAdminJPanelLayout);
         CommunityAdminJPanelLayout.setHorizontalGroup(
             CommunityAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CommunityAdminJPanelLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+            .addGap(0, 816, Short.MAX_VALUE)
         );
         CommunityAdminJPanelLayout.setVerticalGroup(
             CommunityAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CommunityAdminJPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(CommunityAdminJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(653, Short.MAX_VALUE))
+            .addGap(0, 701, Short.MAX_VALUE)
         );
 
         SplitPane.setRightComponent(CommunityAdminJPanel);
@@ -116,13 +121,13 @@ public class CommunityAdminJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ModifyHospitalDetails ModifyHospDtl = new ModifyHospitalDetails(history);
+        ModifyHospitalDetails ModifyHospDtl = new ModifyHospitalDetails(hospital_history);
         SplitPane.setBottomComponent(ModifyHospDtl);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ModifyPatientDetails ModifyPatDtl = new ModifyPatientDetails(history);
+        ModifyPatientDetails ModifyPatDtl = new ModifyPatientDetails(patient_history);
         SplitPane.setBottomComponent(ModifyPatDtl);
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -135,5 +140,6 @@ public class CommunityAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

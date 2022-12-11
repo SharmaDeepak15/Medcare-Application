@@ -4,7 +4,11 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.DoctorDataRecord;
+import model.DoctorDetails;
+import model.PatientDetails;
 
 /**
  *
@@ -19,6 +23,7 @@ public class DeleteDoctorDetails extends javax.swing.JPanel {
     public DeleteDoctorDetails(DoctorDataRecord doctor_history) {
         initComponents();
         this.doctor_history = doctor_history;
+        PopulateDoctorTable();
     }
 
     /**
@@ -70,12 +75,18 @@ public class DeleteDoctorDetails extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Speciality", "Contact"
+                "Name", "ID", "Speciality", "Contact"
             }
-        ));
-        jTable1.setColumnSelectionAllowed(true);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jButton3.setText("VIEW");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -214,10 +225,47 @@ public class DeleteDoctorDetails extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+        int SelectedRowIndex = jTable1.getSelectedRow();
+
+        if (SelectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a record to view details");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DoctorDetails SelectedEmpRecord = (DoctorDetails) model.getValueAt(SelectedRowIndex, 0);
+
+        DoctorNameTxt.setText(SelectedEmpRecord.getDoctor_name());
+        DoctorIDTxt.setText(String.valueOf(SelectedEmpRecord.getDoctor_id()));
+        DoctorContactTxt.setText(String.valueOf(SelectedEmpRecord.getDoctor_contact()));
+        DoctorAssignedHospitalIDTxt.setText(String.valueOf(SelectedEmpRecord.getDoctor_assigned_hospital_id()));
+        DoctorGenderTxt.setText(SelectedEmpRecord.getDoctor_gender());
+        DoctorSpecialityTxt.setText(String.valueOf(SelectedEmpRecord.getDoctor_speciality()));
+        DoctorEmailTxt.setText(SelectedEmpRecord.getDoctor_email());
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+         int SelectedRowIndex = jTable1.getSelectedRow();
+        
+        if (SelectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a record to delete");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DoctorDetails SelectedPatRecord = (DoctorDetails) model.getValueAt(SelectedRowIndex, 0);
+        
+        doctor_history.DeleteDoctorDetails(SelectedPatRecord);
+        
+        JOptionPane.showMessageDialog(this,"Selected record has been deleted");
+        
+        PopulateDoctorTable();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void DoctorNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorNameTxtActionPerformed
@@ -259,4 +307,22 @@ public class DeleteDoctorDetails extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void PopulateDoctorTable() {
+       
+          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        for (DoctorDetails ed : doctor_history.getHistory()){
+            Object[] row = new Object[4];
+            row[0] = ed;
+            row[1] = ed.getDoctor_id();
+            row[2] = ed.getDoctor_speciality();
+            row[3] = ed.getDoctor_contact();
+           
+            
+            model.addRow(row);
+    }
+        
+    }
 }

@@ -140,9 +140,9 @@
                           <Component id="PatientHNOTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="PatientStreetNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="PatientStreetNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PatientStreetNameTxt" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">

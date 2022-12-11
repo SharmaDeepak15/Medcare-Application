@@ -4,12 +4,10 @@
  */
 package UI;
 
-import java.awt.CardLayout;
 import model.DoctorDataRecord;
 import model.HospitalDataRecord;
 import model.MedcareDataRecord;
 import model.PatientDataRecord;
-
 /**
  *
  * @author deepaksharma
@@ -19,14 +17,12 @@ public class HomeJFrame extends javax.swing.JFrame {
     /**
      * Creates new form HomeJFrame
      */
-    MedcareDataRecord history;
     PatientDataRecord patient_history;
     HospitalDataRecord hospital_history;
     DoctorDataRecord doctor_history;
     
     public HomeJFrame() {
         initComponents();
-        history = new MedcareDataRecord();
         patient_history = new PatientDataRecord();
         hospital_history = new HospitalDataRecord();
         doctor_history = new DoctorDataRecord();
@@ -44,36 +40,27 @@ public class HomeJFrame extends javax.swing.JFrame {
         SplitPane = new javax.swing.JSplitPane();
         LabelPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        userProcessContainer = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        userProcessContainer = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         SplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        LabelPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(1, 1, 1));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("+ MedCare");
         jLabel1.setToolTipText("");
-
-        javax.swing.GroupLayout LabelPanelLayout = new javax.swing.GroupLayout(LabelPanel);
-        LabelPanel.setLayout(LabelPanelLayout);
-        LabelPanelLayout.setHorizontalGroup(
-            LabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        LabelPanelLayout.setVerticalGroup(
-            LabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        SplitPane.setTopComponent(LabelPanel);
+        LabelPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 710, 31));
 
         jButton3.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jButton3.setText("PATIENT");
@@ -82,6 +69,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        LabelPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 55, 121, -1));
 
         jButton2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jButton2.setText("DOCTOR");
@@ -90,6 +78,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        LabelPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 55, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jButton1.setText("HOSPITAL ADMIN");
@@ -98,6 +87,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        LabelPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 55, 154, -1));
 
         jButton5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jButton5.setText("COMMUNITY ADMIN");
@@ -106,6 +96,7 @@ public class HomeJFrame extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        LabelPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(611, 55, 174, -1));
 
         jButton4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jButton4.setText("SYSTEM ADMIN");
@@ -114,53 +105,19 @@ public class HomeJFrame extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        LabelPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 55, 161, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ROLES");
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/deepaksharma/Desktop/Finaltitle.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        LabelPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 810, 110));
 
-        javax.swing.GroupLayout userProcessContainerLayout = new javax.swing.GroupLayout(userProcessContainer);
-        userProcessContainer.setLayout(userProcessContainerLayout);
-        userProcessContainerLayout.setHorizontalGroup(
-            userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userProcessContainerLayout.createSequentialGroup()
-                .addGroup(userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userProcessContainerLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(userProcessContainerLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addGroup(userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91)
-                        .addGroup(userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userProcessContainerLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(308, 308, 308))
-        );
-        userProcessContainerLayout.setVerticalGroup(
-            userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userProcessContainerLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel2)
-                .addGap(39, 39, 39)
-                .addGroup(userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(userProcessContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
-        );
+        SplitPane.setTopComponent(LabelPanel);
+
+        userProcessContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/deepaksharma/Desktop/medical-healthcare-blue-color_1017-26807.jpg copy.png")); // NOI18N
+        jLabel3.setText("jLabel3");
+        userProcessContainer.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 730));
 
         SplitPane.setRightComponent(userProcessContainer);
 
@@ -181,7 +138,7 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
                 // TODO add your handling code here:
-        PatientHomeJPanel PatientJPanel = new PatientHomeJPanel(history);
+        PatientHomeJPanel PatientJPanel = new PatientHomeJPanel(hospital_history, doctor_history);
         SplitPane.setBottomComponent(PatientJPanel);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -199,7 +156,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        CommunityAdminJPanel CommJPanel = new CommunityAdminJPanel(history);
+        CommunityAdminJPanel CommJPanel = new CommunityAdminJPanel(patient_history, hospital_history);
         SplitPane.setBottomComponent(CommJPanel);
         
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -255,6 +212,7 @@ public class HomeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }

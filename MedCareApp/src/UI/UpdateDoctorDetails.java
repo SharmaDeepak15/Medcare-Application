@@ -7,7 +7,7 @@ package UI;
 import javax.swing.JOptionPane;
 import model.DoctorDataRecord;
 import model.DoctorDetails;
-import model.MedcareDataRecord;
+
 
 /**
  *
@@ -19,7 +19,7 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
      * Creates new form UpdateDoctorDetails
      */
     DoctorDataRecord doctor_history ;
-    public UpdateDoctorDetails(DoctorDataRecord history) {
+    public UpdateDoctorDetails(DoctorDataRecord doctor_history) {
         initComponents();
         this.doctor_history= doctor_history;
     }
@@ -74,7 +74,7 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        SearchDoctorID = new javax.swing.JTextField();
         TxtDoctorIDSearch = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         DoctorNameLabel = new javax.swing.JLabel();
@@ -297,9 +297,10 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
                             .addComponent(jLabel12)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,9 +365,9 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
 
         jLabel3.setText("Doctor ID:");
 
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+        SearchDoctorID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
+                SearchDoctorIDActionPerformed(evt);
             }
         });
 
@@ -416,6 +417,7 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
 
         DoctorIDLabel.setText("ID*:");
 
+        DoctorIDTxt.setEditable(false);
         DoctorIDTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DoctorIDTxtActionPerformed(evt);
@@ -429,48 +431,49 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(661, Short.MAX_VALUE)
+                .addComponent(jLabel29)
+                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DoctorAssignedHospitalIDLabel)
-                    .addComponent(DoctorSpecialityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorContactLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DoctorEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorContactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorAssignedHospitalIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorSpecialityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DoctorGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(229, 229, 229)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SearchDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TxtDoctorIDSearch))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DoctorAssignedHospitalIDLabel)
+                                    .addComponent(DoctorSpecialityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorContactLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(TxtDoctorIDSearch))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(143, 143, 143)))
-                        .addGap(225, 225, 225))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addGap(24, 24, 24))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DoctorEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorContactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorAssignedHospitalIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorSpecialityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DoctorGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jButton4)))
+                        .addGap(30, 30, 30)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,12 +482,14 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel29)
-                .addGap(71, 71, 71)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtDoctorIDSearch)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(94, 94, 94)
+                .addGap(59, 59, 59)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DoctorIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DoctorIDLabel))
@@ -512,21 +517,19 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DoctorContactLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DoctorContactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
-                .addComponent(jButton4)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void SearchDoctorIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchDoctorIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_SearchDoctorIDActionPerformed
 
     private void TxtDoctorIDSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDoctorIDSearchActionPerformed
         // TODO add your handling code here:
         
         
-        String doctor_id = String.valueOf(TxtDoctorIDSearch.getText());
+        String doctor_id = String.valueOf(SearchDoctorID.getText());
         
         if (doctor_id.length() == 0 ){
             JOptionPane.showMessageDialog(this,"The search field is empty, please provide required values to search.", "Empty Field", JOptionPane.WARNING_MESSAGE);
@@ -536,13 +539,15 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
         if (doctor_id.length() > 0 ){
             try 
                 { 
-                int user_doc_id = Integer.parseInt(TxtDoctorIDSearch.getText()); 
+                int user_doc_id = Integer.parseInt(SearchDoctorID.getText()); 
                 }  
             catch (NumberFormatException e)  
                 { 
                 JOptionPane.showMessageDialog(this,"The Doctor ID is invalid, please provide the integer value only.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
                 return;}          
         } 
+        
+        
         
         DoctorIDTxt.setText("");
         DoctorNameTxt.setText("");
@@ -553,7 +558,7 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
         DoctorContactTxt.setText("");
         
         
-        int user_doc_id = Integer.parseInt(TxtDoctorIDSearch.getText());
+        int user_doc_id = Integer.parseInt(SearchDoctorID.getText());
         int id_check = 0 ;
         for (DoctorDetails ed : doctor_history.getHistory()){
             int doc_id = ed.getDoctor_id(); 
@@ -642,12 +647,24 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
         if (validate_doctor_contact.length() > 0 ){
             try 
                 { 
-                Integer.parseInt(DoctorContactTxt.getText()); 
+                 Long.parseLong(DoctorContactTxt.getText()); 
                 }  
             catch (NumberFormatException e)  
                 { 
                 JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the integer value only.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
                 return;}          
+        } 
+        
+        if (validate_doctor_contact.length() != 10 ){
+        JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the valid contact value.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        
+        
+        String validate_doctor_mail = String.valueOf(DoctorEmailTxt.getText());
+        if (!validate_doctor_mail.contains("@") && validate_doctor_mail.length() > 0  ){
+            JOptionPane.showMessageDialog(this,"The email is invalid, please provide the valid mail id.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+            return;     
         } 
         
         int update_doctor_id = Integer.parseInt(DoctorIDTxt.getText()); 
@@ -724,6 +741,7 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
     private javax.swing.JTextField DoctorNameTxt;
     private javax.swing.JLabel DoctorSpecialityLabel;
     private javax.swing.JTextField DoctorSpecialityTxt;
+    private javax.swing.JTextField SearchDoctorID;
     private javax.swing.JButton TxtDoctorIDSearch;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -759,7 +777,6 @@ public class UpdateDoctorDetails extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

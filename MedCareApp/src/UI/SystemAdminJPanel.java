@@ -80,11 +80,11 @@ public class SystemAdminJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(SystemAdminLabelJPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(31, 31, 31)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(132, 132, 132)
                 .addComponent(jButton3)
-                .addGap(123, 123, 123)
+                .addGap(131, 131, 131)
                 .addComponent(jButton1)
                 .addGap(30, 30, 30))
         );
@@ -123,7 +123,7 @@ public class SystemAdminJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(SplitPane)
         );
     }// </editor-fold>//GEN-END:initComponents
 

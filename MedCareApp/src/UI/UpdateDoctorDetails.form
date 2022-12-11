@@ -143,9 +143,11 @@
                               <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -412,58 +414,59 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="661" max="32767" attributes="0"/>
+              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" pref="804" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DoctorAssignedHospitalIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="DoctorSpecialityLabel" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="DoctorGenderLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="DoctorNameLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="DoctorIDLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="DoctorEmailLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="DoctorContactLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DoctorEmailTxt" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                  <Component id="DoctorContactTxt" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                  <Component id="DoctorAssignedHospitalIDTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                  <Component id="DoctorSpecialityTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                  <Component id="DoctorNameTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                  <Component id="DoctorIDTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                  <Component id="DoctorGenderTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="SearchDoctorID" min="-2" pref="142" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="TxtDoctorIDSearch" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="99" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="DoctorAssignedHospitalIDLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DoctorSpecialityLabel" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                  <Component id="DoctorGenderLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="DoctorNameLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="DoctorIDLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="DoctorEmailLabel" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="DoctorContactLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField17" min="-2" pref="142" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="TxtDoctorIDSearch" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="DoctorEmailTxt" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                  <Component id="DoctorContactTxt" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                  <Component id="DoctorAssignedHospitalIDTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="DoctorSpecialityTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="DoctorNameTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="DoctorIDTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="DoctorGenderTxt" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                               <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -474,13 +477,15 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="TxtDoctorIDSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SearchDoctorID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DoctorIDTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DoctorIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -515,9 +520,7 @@
                   <Component id="DoctorContactLabel" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="DoctorContactTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace pref="241" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -537,9 +540,9 @@
         <Property name="text" type="java.lang.String" value="Doctor ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField17">
+    <Component class="javax.swing.JTextField" name="SearchDoctorID">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField17ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchDoctorIDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="TxtDoctorIDSearch">
@@ -615,6 +618,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="DoctorIDTxt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DoctorIDTxtActionPerformed"/>
       </Events>

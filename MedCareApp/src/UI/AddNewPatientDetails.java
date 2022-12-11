@@ -258,7 +258,7 @@ public class AddNewPatientDetails extends javax.swing.JPanel {
                             .addComponent(PatientHNOLabel)
                             .addComponent(PatientHNOTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PatientStreetNameLabel)
                             .addComponent(PatientStreetNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -444,7 +444,17 @@ public class AddNewPatientDetails extends javax.swing.JPanel {
                 return;}          
         } 
         
+        if (validate_contact.length() != 10 ){
+                JOptionPane.showMessageDialog(this,"The Contact is invalid, please provide the valid contact value.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+                return;
+        }
         
+        
+        String validate_pat_mail = String.valueOf(PatientEmailTxt.getText());
+        if (!validate_pat_mail.contains("@") && validate_pat_mail.length() > 0  ){
+            JOptionPane.showMessageDialog(this,"The email is invalid, please provide the valid mail id.", "Invalid Value", JOptionPane.WARNING_MESSAGE);
+            return;     
+        } 
         
         int patient_id = Integer.parseInt(PatientIDTxt.getText());
         String patient_name = PatientNameTxt.getText();

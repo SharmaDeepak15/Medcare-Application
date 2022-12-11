@@ -4,8 +4,10 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.HospitalDataRecord;
-import model.MedcareDataRecord;
+import model.HospitalDetails;
 
 /**
  *
@@ -19,7 +21,8 @@ public class DeleteHospitalDetails extends javax.swing.JPanel {
     HospitalDataRecord hospital_history ;
     public DeleteHospitalDetails(HospitalDataRecord hospital_history) {
         initComponents();
-        this.hospital_history = this.hospital_history;
+        this.hospital_history = hospital_history;
+        PopulateHospitalTable();
     }
 
     /**
@@ -65,10 +68,17 @@ public class DeleteHospitalDetails extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Contact", "City", "Country"
+                "Name", "ID", "Contact", "City", "Country"
             }
-        ));
-        jTable1.setColumnSelectionAllowed(true);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("VIEW");
@@ -199,7 +209,7 @@ public class DeleteHospitalDetails extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(HospitalStreetNameLabel)
                             .addComponent(HospitalStreetNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,10 +246,47 @@ public class DeleteHospitalDetails extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+         int SelectedRowIndex = jTable1.getSelectedRow();
+
+        if (SelectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a record to view details");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        HospitalDetails SelectedHospRecord = (HospitalDetails) model.getValueAt(SelectedRowIndex, 0);
+
+        HospitalNameTxt.setText(SelectedHospRecord.getHospital_name());
+        HospitalIDTxt.setText(String.valueOf(SelectedHospRecord.getHospital_id()));
+        HospitalCityTxt.setText(SelectedHospRecord.getHospital_city());
+        HospitalContactTxt.setText(String.valueOf(SelectedHospRecord.getHospital_contact()));
+        HospitalCountryTxt.setText(SelectedHospRecord.getHospital_country());
+        HospitalEmailTxt.setText(SelectedHospRecord.getHospital_email());
+        HospitalPostalCodeTxt.setText(SelectedHospRecord.getHospital_postal_code());
+        HospitalStreetNameTxt.setText(SelectedHospRecord.getHospital_street_name());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        int SelectedRowIndex = jTable1.getSelectedRow();
+        
+        if (SelectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a record to delete");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        HospitalDetails SelectedHospRecord = (HospitalDetails) model.getValueAt(SelectedRowIndex, 0);
+        
+        hospital_history.DeleteHospitalDetails(SelectedHospRecord);
+        
+        JOptionPane.showMessageDialog(this,"Selected record has been deleted");
+        
+        PopulateHospitalTable();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void HospitalContactTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalContactTxtActionPerformed
@@ -283,4 +330,23 @@ public class DeleteHospitalDetails extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void PopulateHospitalTable() {
+        
+          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        for (HospitalDetails ed : hospital_history.getHistory()){
+            Object[] row = new Object[5];
+            row[0] = ed;
+            row[1] = ed.getHospital_id();
+            row[2] = ed.getHospital_contact();
+            row[3] = ed.getHospital_city();
+            row[4] = ed.getHospital_country();
+            
+            model.addRow(row);
+    }
+        
+        
+    }
 }

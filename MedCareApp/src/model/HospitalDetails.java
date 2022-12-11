@@ -74,6 +74,11 @@ public class HospitalDetails {
         this.hospital_postal_code = hospital_postal_code;
     }
     
+     @Override
+    public String toString(){
+        return hospital_name;
+    }
+    
     private int hospital_id;
     private String hospital_name;
     private long hospital_contact;
